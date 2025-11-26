@@ -1,5 +1,0 @@
-{
-  "version": 3,
-  "installCommand": "corepack pnpm@9.15.0 install",
-  "buildCommand": "corepack pnpm@9.15.0 build"
-}
