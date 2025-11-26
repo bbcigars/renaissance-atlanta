@@ -11,6 +11,8 @@ A monorepo containing all BBCigars business websites and applications.
 ## Getting Started
 
 ```bash
+# Use the Node version pinned in .nvmrc (Node 20)
+# run `nvm use` or load it via your favorite version manager before running pnpm
 # Install dependencies for all workspaces
 pnpm install
 
@@ -24,6 +26,7 @@ pnpm build
 ## Apps
 
 ### Renaissance Atlanta
+
 Restaurant, bar, and cigar bar with live entertainment venue.
 
 ```bash
