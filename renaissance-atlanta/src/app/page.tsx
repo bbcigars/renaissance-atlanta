@@ -95,16 +95,24 @@ export default function Home() {
           <div className="absolute inset-0 bg-amber-600/10 blur-3xl"></div>
           <div className="relative">
             <p className="text-sm tracking-[0.3em] text-amber-400 uppercase mb-2">
-              Featured Event
+              Featured Events
             </p>
-            <h2 className="text-6xl font-serif italic text-amber-100 mb-6">
-              Live Entertainment
+            <h2 className="text-4xl md:text-6xl font-serif italic text-amber-100 mb-8">
+              Grand Opening Weekend
             </h2>
-            <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white py-6 px-12 rounded-lg inline-block shadow-2xl">
-              <p className="text-4xl font-serif italic mb-1">December 13th</p>
-              <p className="text-lg tracking-widest uppercase text-amber-100">
-                Special Performance
-              </p>
+            <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+              <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white py-6 px-12 rounded-lg shadow-2xl">
+                <p className="text-3xl md:text-4xl font-serif italic mb-1">December 19th</p>
+                <p className="text-base md:text-lg tracking-widest uppercase text-amber-100">
+                  Grand Opening
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white py-6 px-12 rounded-lg shadow-2xl">
+                <p className="text-3xl md:text-4xl font-serif italic mb-1">December 20th</p>
+                <p className="text-base md:text-lg tracking-widest uppercase text-amber-100">
+                  October London
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -128,7 +136,7 @@ export default function Home() {
                 <p className="text-xs tracking-widest text-amber-400 uppercase mb-1">
                   Date
                 </p>
-                <p className="text-lg text-amber-200">December 13th, 2024</p>
+                <p className="text-lg text-amber-200">December 20th, 2024</p>
               </div>
               <div>
                 <p className="text-xs tracking-widest text-amber-400 uppercase mb-1">
