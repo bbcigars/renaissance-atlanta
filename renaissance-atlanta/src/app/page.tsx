@@ -34,12 +34,23 @@ export default function Home() {
       <main className="max-w-6xl mx-auto p-8">
         {/* Hero Section */}
         <div className="text-center mb-16 py-12">
-          <h2 className="text-7xl font-serif italic text-amber-100 mb-4 tracking-tight">
+          <h2 className="text-7xl font-serif italic text-amber-100 mb-8 tracking-tight">
             Where Culture Meets Class
           </h2>
-          <p className="text-2xl text-amber-300/80 font-light tracking-wide">
-            Kitchen & Cocktails • Fine Cigars • Live Entertainment
-          </p>
+          
+          {/* Two Levels */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
+            <div className="bg-black/40 backdrop-blur-sm border border-amber-600/30 rounded-lg p-8">
+              <p className="text-sm tracking-[0.3em] text-amber-400 uppercase mb-3">Level 1</p>
+              <h3 className="text-2xl font-serif italic text-amber-100 mb-4">Fine Dining & Cocktails</h3>
+              <p className="text-amber-200/80">Live Entertainment • Non-Smoking</p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-amber-600/30 rounded-lg p-8">
+              <p className="text-sm tracking-[0.3em] text-amber-400 uppercase mb-3">Level 2</p>
+              <h3 className="text-2xl font-serif italic text-amber-100 mb-4">Studio Upper Room</h3>
+              <p className="text-amber-200/80">Fine Cigars • Premium Brandy & Spirits</p>
+            </div>
+          </div>
         </div>
 
         <div className="mb-16 grid md:grid-cols-2 gap-8">
@@ -107,9 +118,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center">
           <h3 className="text-4xl font-serif italic text-amber-100 mb-2">Renaissance</h3>
           <p className="text-sm tracking-widest text-amber-400/80 mb-6">ATLANTA</p>
-          <p className="text-amber-400 mb-4 text-lg font-light">
-            Kitchen & Cocktails • Fine Cigars • Live Entertainment
-          </p>
+          <div className="space-y-2 mb-4">
+            <p className="text-amber-400 text-sm">Level 1: Fine Dining & Cocktails • Live Entertainment</p>
+            <p className="text-amber-400 text-sm">Level 2: Studio Upper Room • Fine Cigars • Premium Brandy & Spirits</p>
+          </div>
           <p className="text-amber-200/60 tracking-wide">
             6000 Renaissance Pkwy, Fairburn, GA 30213
           </p>
