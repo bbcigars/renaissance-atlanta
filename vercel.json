@@ -1,7 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/vercel",
-  "version": 3,
+  "version": 2,
   "installCommand": "corepack pnpm@9.15.0 install",
-  "buildCommand": "corepack pnpm@9.15.0 build",
-  "rootDirectory": "renaissance-atlanta"
+  "buildCommand": "cd renaissance-atlanta && corepack pnpm@9.15.0 build",
+  "builds": [
+    {
+      "src": "renaissance-atlanta/package.json",
+      "use": "@vercel/next"
+    }
+  ]
 }
