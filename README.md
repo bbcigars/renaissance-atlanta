@@ -16,7 +16,7 @@ A monorepo containing all BBCigars business websites and applications.
 # Install dependencies for all workspaces
 pnpm install
 
-# Run development servers for all apps
+# Run development servers for all apps!
 pnpm dev
 
 # Build all apps
