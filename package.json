@@ -16,9 +16,5 @@
   "devDependencies": {
     "@types/node": "^20",
     "typescript": "^5"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
   }
 }
