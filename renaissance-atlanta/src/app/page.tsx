@@ -1,37 +1,44 @@
+'use client';
+
+import { useState } from 'react';
 import Image from "next/image";
 import MediaCarousel from "@/components/MediaCarousel";
 import ArtistImage from "@/components/ArtistImage";
+import TicketModal from "@/components/TicketModal";
 
 export default function Home() {
+  const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-amber-900 to-slate-900">
       {/* Header */}
       <header className="bg-black/80 backdrop-blur-sm text-white p-6 border-b border-amber-600/30">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-4">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          {/* Left - Empty spacer for balance */}
+          <div className="w-[100px] hidden md:block"></div>
+          
+          {/* Center - Grand Opening */}
+          <div className="flex-1 text-center">
+            <p className="text-sm tracking-[0.3em] text-amber-400 uppercase mb-1">Grand Opening Weekend</p>
+            <h1 className="text-2xl md:text-4xl font-serif italic text-amber-100 mb-2">December 19th & 20th</h1>
+            <button
+              onClick={() => setIsTicketModalOpen(true)}
+              className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-2 px-8 rounded-lg font-bold hover:from-amber-700 hover:to-orange-700 transition-all shadow-lg"
+            >
+              Get Tickets
+            </button>
+          </div>
+          
+          {/* Right - Logo */}
+          <div className="relative w-[100px] h-[100px] overflow-hidden rounded-full flex-shrink-0">
+            <div className="absolute inset-0 bg-amber-600/30 rounded-full blur-xl"></div>
             <Image
               src="/images/logos/RenAtlLogo.jpg"
               alt="Renaissance Atlanta"
-              width={60}
-              height={60}
-              className="rounded-full"
+              width={100}
+              height={100}
+              className="rounded-full ring-4 ring-amber-600/50 relative scale-[2]"
             />
-            <div>
-              <h1 className="text-2xl md:text-3xl font-serif italic text-amber-100">
-                Renaissance
-              </h1>
-              <p className="text-xs md:text-sm tracking-widest text-amber-400/80">
-                ATLANTA
-              </p>
-            </div>
-          </div>
-          <div className="text-center md:text-right">
-            <p className="text-xs md:text-sm font-light">
-              6000 Renaissance Pkwy
-            </p>
-            <p className="text-xs text-amber-400 tracking-wide">
-              Fairburn, GA 30213
-            </p>
           </div>
         </div>
       </header>
@@ -102,18 +109,28 @@ export default function Home() {
             </h2>
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
               <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white py-6 px-12 rounded-lg shadow-2xl">
-                <p className="text-3xl md:text-4xl font-serif italic mb-1">December 19th</p>
+                <p className="text-3xl md:text-4xl font-serif italic mb-1">
+                  December 19th
+                </p>
                 <p className="text-base md:text-lg tracking-widest uppercase text-amber-100">
                   Grand Opening
                 </p>
               </div>
               <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white py-6 px-12 rounded-lg shadow-2xl">
-                <p className="text-3xl md:text-4xl font-serif italic mb-1">December 20th</p>
+                <p className="text-3xl md:text-4xl font-serif italic mb-1">
+                  December 20th
+                </p>
                 <p className="text-base md:text-lg tracking-widest uppercase text-amber-100">
                   October London
                 </p>
               </div>
             </div>
+            <button
+              onClick={() => setIsTicketModalOpen(true)}
+              className="mt-8 bg-gradient-to-r from-amber-600 to-orange-600 text-white py-4 px-12 rounded-lg font-bold text-xl hover:from-amber-700 hover:to-orange-700 transition-all shadow-2xl"
+            >
+              Get Tickets
+            </button>
           </div>
         </div>
 
@@ -185,6 +202,8 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      <TicketModal isOpen={isTicketModalOpen} onClose={() => setIsTicketModalOpen(false)} />
     </div>
   );
 }
