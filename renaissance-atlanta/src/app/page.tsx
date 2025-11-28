@@ -1,44 +1,64 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 import MediaCarousel from "@/components/MediaCarousel";
 import ArtistImage from "@/components/ArtistImage";
 import TicketModal from "@/components/TicketModal";
+import LeadCaptureModal from "@/components/LeadCaptureModal";
 
 export default function Home() {
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
+  const [isLeadCaptureOpen, setIsLeadCaptureOpen] = useState(false);
+
+  // Show lead capture after 30 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLeadCaptureOpen(true);
+    }, 30000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-amber-900 to-slate-900">
       {/* Header */}
-      <header className="bg-black/80 backdrop-blur-sm text-white p-6 border-b border-amber-600/30">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          {/* Left - Empty spacer for balance */}
-          <div className="w-[100px] hidden md:block"></div>
-          
-          {/* Center - Grand Opening */}
-          <div className="flex-1 text-center">
-            <p className="text-sm tracking-[0.3em] text-amber-400 uppercase mb-1">Grand Opening Weekend</p>
-            <h1 className="text-2xl md:text-4xl font-serif italic text-amber-100 mb-2">December 19th & 20th</h1>
-            <button
-              onClick={() => setIsTicketModalOpen(true)}
-              className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-2 px-8 rounded-lg font-bold hover:from-amber-700 hover:to-orange-700 transition-all shadow-lg"
-            >
-              Get Tickets
-            </button>
-          </div>
-          
-          {/* Right - Logo */}
-          <div className="relative w-[100px] h-[100px] overflow-hidden rounded-full flex-shrink-0">
-            <div className="absolute inset-0 bg-amber-600/30 rounded-full blur-xl"></div>
-            <Image
-              src="/images/logos/RenAtlLogo.jpg"
-              alt="Renaissance Atlanta"
-              width={100}
-              height={100}
-              className="rounded-full ring-4 ring-amber-600/50 relative scale-[2]"
-            />
+      <header className="bg-black/80 backdrop-blur-sm text-white p-4 md:p-6 border-b border-amber-600/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-4 md:mb-0">
+            {/* Left - Empty spacer for balance on desktop */}
+            <div className="w-[100px] hidden lg:block"></div>
+            
+            {/* Center - Grand Opening */}
+            <div className="flex-1 text-center">
+              <p className="text-xs md:text-sm tracking-[0.3em] text-amber-400 uppercase mb-1">Grand Opening Weekend</p>
+              <h1 className="text-xl md:text-4xl font-serif italic text-amber-100 mb-2">December 19th & 20th</h1>
+              <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
+                <button
+                  onClick={() => setIsTicketModalOpen(true)}
+                  className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-2 px-6 md:px-8 rounded-lg font-bold hover:from-amber-700 hover:to-orange-700 transition-all shadow-lg text-sm md:text-base"
+                >
+                  Get Tickets
+                </button>
+                <button
+                  onClick={() => setIsLeadCaptureOpen(true)}
+                  className="text-amber-400 hover:text-amber-100 underline text-sm md:text-base transition-colors"
+                >
+                  Stay in the Loop
+                </button>
+              </div>
+            </div>
+            
+            {/* Right - Logo */}
+            <div className="relative w-[80px] h-[80px] md:w-[100px] md:h-[100px] overflow-hidden rounded-full flex-shrink-0">
+              <div className="absolute inset-0 bg-amber-600/30 rounded-full blur-xl"></div>
+              <Image
+                src="/images/logos/RenAtlLogo.jpg"
+                alt="Renaissance Atlanta"
+                width={100}
+                height={100}
+                className="rounded-full ring-4 ring-amber-600/50 relative scale-[2]"
+              />
+            </div>
           </div>
         </div>
       </header>
@@ -204,6 +224,7 @@ export default function Home() {
       </footer>
 
       <TicketModal isOpen={isTicketModalOpen} onClose={() => setIsTicketModalOpen(false)} />
+      <LeadCaptureModal isOpen={isLeadCaptureOpen} onClose={() => setIsLeadCaptureOpen(false)} />
     </div>
   );
 }
