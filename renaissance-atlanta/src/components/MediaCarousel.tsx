@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 
 const media = [
@@ -36,6 +36,19 @@ export default function MediaCarousel() {
     return () => clearInterval(timer);
   }, []);
 
+  // Force video play on iOS when slide changes
+  useEffect(() => {
+    const item = media[current];
+    if (item.type === 'video') {
+      const video = document.querySelector('video');
+      if (video) {
+        video.play().catch(() => {
+          // Autoplay blocked, user interaction required
+        });
+      }
+    }
+  }, [current]);
+
   const item = media[current];
 
   return (
@@ -44,11 +57,13 @@ export default function MediaCarousel() {
         <Image src={item.src} alt={item.alt} fill className="object-cover" />
       ) : (
         <video
+          key={item.src}
           src={item.src}
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover"
         />
       )}
