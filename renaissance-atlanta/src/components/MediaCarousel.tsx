@@ -14,20 +14,15 @@ const media = [
     src: "/images/marketing/drink1.jpg",
     alt: "Craft cocktails",
   },
-  { type: "image", src: "/images/marketing/flow.jpg", alt: "Venue atmosphere" },
-  { type: "image", src: "/images/marketing/flow2.jpg", alt: "Venue vibe" },
   {
-    type: "image",
-    src: "/images/marketing/musicSetting.jpg",
-    alt: "Live music setting",
+    type: "video",
+    src: "/images/marketing/TurkeyDay.mp4",
+    alt: "Happy Holidays",
   },
-  { type: "image", src: "/images/marketing/patio.jpg", alt: "Patio area" },
-  { type: "image", src: "/images/marketing/patioView.jpg", alt: "Patio view" },
-
   {
     type: "image",
-    src: "/images/marketing/secondFloorVibe.jpg",
-    alt: "Second floor vibe",
+    src: "/images/marketing/SurfAndTurf.png",
+    alt: "Surf and Turf",
   },
 ];
 
