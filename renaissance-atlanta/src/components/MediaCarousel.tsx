@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const media = [
@@ -11,17 +11,17 @@ const media = [
   },
   {
     type: "image",
-    src: "/images/marketing/drink1.jpg",
+    src: "/images/marketing/drinksAnyone.svg",
     alt: "Craft cocktails",
   },
   {
-    type: "video",
-    src: "/images/marketing/TurkeyDay.mp4",
+    type: "image",
+    src: "/images/marketing/drinksAnyone2.svg",
     alt: "Happy Holidays",
   },
   {
     type: "image",
-    src: "/images/marketing/SurfAndTurf.png",
+    src: "/images/marketing/goodEating.svg",
     alt: "Surf and Turf",
   },
 ];
@@ -40,7 +40,7 @@ export default function MediaCarousel() {
   // Force video play when slide changes
   useEffect(() => {
     const item = media[current];
-    if (item.type === 'video' && videoRef.current) {
+    if (item.type === "video" && videoRef.current) {
       videoRef.current.load();
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
